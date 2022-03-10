@@ -1,0 +1,49 @@
+.modal.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-color: rgba(77, 94, 119, 0.3);
+
+    visibility: hidden;
+    opacity: 0;
+}
+
+.modal .container{
+    width: min(59rem, 90%);
+
+    background-color: white;
+
+    margin: auto;
+
+    box-shadow: 5px 5px 15px #212529;
+    border-radius: 20px 0px 20px 0px;
+
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
+.modal .container h2{
+    margin-bottom: 50px;
+}
+
+.modal.container h2,
+.modal.container p{
+    color: #212529;
+    text-align: center;
+}
+
+.modal .container p{
+    font-size: 20px;
+}
+
+#btnCancel{
+    margin-left: 10px;
+}
