@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/e78945f0c7.js" crossorigin="anonymous"></script>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="styles/modal.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Links</title>
+</head>
+
+<body class="bg-light" style="font-family: 'Poppins', sans-serif;">
+    <div class="bg-info py-5" style="border-radius: 0 70px 0 70px;">
+        <p class="text-light text-wrap container text-center" style="width: 400px;">
+            Sabe aquele site que você acessa todos os dias?
+            encontre-o facilmente com mais praticidade e velocidade!
+        </p>
+        <h1 class="text-light text-center">Adicone aqui seus links preferidos!</h1>
+
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-primary mb-5 mt-4 px-5" href="/add">ADD LINK<i style="padding-left: 10px;" class="fa-solid fa-plus"></i></a>
+        </div>
+    </div>
+    <div class="container">
+
+        <h2 class="my-4">Seus links</h2>
+
+        <% for(let i = 0; i < links.length; i++) {%>
+            <div id="<%=links[i]._id%>" class="card mb-2 shadow-sm p-3 bg-body rounded">
+                <div class="card-body">
+                    <h2 class="card-title"><%=links[i].title%></h2>
+                    <div class="card-text"><%=links[i].description%></div>
+                    <div class="card-text text-muted"><%=links[i].url%></div>
+                    <div class="card-text text-info"><i class="fa-solid fa-arrow-pointer me-2"></i>clicks: <%=links[i].click%> </div>
+                </div>
+            </div>
+            <a class="btn btn-primary mb-4" target="_blank" href="/<%=links[i].title%>">ACESSAR</a>
+            <button onclick="modalDelete('<%=links[i]._id%>')" class="btn btn-danger mb-4 btnDelete">DELETAR</button>
+            <a class="btn btn-warning mb-4" href="/edit/<%=links[i]._id%>">EDITAR</a>
+
+            <!-- MODAL -->
+            <div class="modal" data-id="<%=links[i]._id%>">
+                <div class="container">
+                    <h2>Excluir link</h2>
+                    <p>Após excluir <span class="text-warning">não terá mais acesso</span> a este link!</p>
+                    <p>Tem certeza que deseja <span class="text-danger">excluir</span> este link?</p>
+                    
+                    <a href="/" class="btn btn-danger" onclick="deleteLink('<%=links[i]._id%>')">Excluir</a>
+                    
+                    <button id="btnCancel" onclick="modalCancel('<%=links[i]._id%>')" class="btn btn-primary">Cancelar</button>
+
+                </div><!-- /container -->
+            </div><!-- /divModal -->
+        <%}%>
+        
+    </div><!-- /container -->
+
+    <script src="/scripts/script.js"></script>
+
+</body>
+</html>

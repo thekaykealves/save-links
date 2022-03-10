@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Add link</title>
+</head>
+<body style="font-family: 'Poppins', sans-serif;" class="bg-info">
+    <div style="border-radius: 40px 0 40px 0;" class="container position-absolute p-4 top-50 start-50 translate-middle  border border-light border-2 shadow-lg">
+        <h1 class="mt-4 text-light">Add link</h1>
+
+        <form class="d-flex flex-column" action="/" method="POST">
+            <input class="p-1 mb-2" name="title" required placeholder="Title" value="<%=body.title%>">
+            <input class="p-1 mb-2" name="description" placeholder="Description" value="<%=body.description%>">
+            <input class="p-1 mb-2" name="url" required placeholder="URL" value="<%=body.url%>">
+            <button class="btn btn-primary py-3">Adicionar</button>
+        </form>
+        
+        <%if(error){%>
+            <h3><%=error.message%></h3>
+        <%}%>
+    </div>
+
+    <div class="position-absolute bottom-0 start-50 translate-middle-x">
+        <a href="/" style="width: 150px;" class="btn btn-danger mb-5 p-2">VOLTAR</a>
+    </div>
+
+</body>
+</html>
