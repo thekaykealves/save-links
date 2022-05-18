@@ -15,7 +15,7 @@
 <p>As seguintes ferramentas foram usadas na construção do projeto:</p>
 
 <ul>
-    <li>Javascript</li>
+    <li>JAVASCRIPT</li>
     <li>EJS</li>
     <li>BOOTSTRAP</li>
     <li>NODEJS</li>
